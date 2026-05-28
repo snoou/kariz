@@ -1,22 +1,42 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import SearchResults from './pages/SearchResults';
-import MangaDetails from './pages/MangaDetails';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import RootLayout from './layouts/RootLayout';
+import Home, { homeLoader } from './pages/Home';
+import SearchResults, { searchLoader } from './pages/SearchResults';
+import MangaDetails, { mangaDetailsLoader } from './pages/MangaDetails';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        loader: homeLoader,
+      },
+      {
+        path: 'search',
+        element: <SearchResults />,
+        loader: searchLoader,
+      },
+      {
+        path: 'manga/:id',
+        element: <MangaDetails />,
+        loader: mangaDetailsLoader,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-gray-50 text-gray-900 font-sans min-w-[1280px]">
-        <main className="container mx-auto px-4 py-8">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/search" element={<SearchResults />} />
-            <Route path="/manga/:id" element={<MangaDetails />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
-  );
+  return <RouterProvider 
+      router={router} 
+      fallbackElement={
+        <div className="flex justify-center items-center min-h-screen text-xl font-semibold">
+          در حال برقراری ارتباط با دروازه مانگا...
+        </div>
+      } 
+    />;
 }
 
 export default App;
