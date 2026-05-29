@@ -33,7 +33,7 @@ const SearchResults = () => {
       <h2 className="text-xl md:text-2xl font-semibold mb-6">
         نتایج جستجو برای: "{query}"
       </h2>
-      
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-6">
         {results.length > 0 ? (
           results.map((manga) => (
@@ -43,24 +43,24 @@ const SearchResults = () => {
           <p className="col-span-full text-center text-gray-500">موردی یافت نشد.</p>
         )}
       </div>
-      
+
       {results.length > 0 && (
-         <div className="flex justify-center mt-10 gap-4">
-           <button 
-             disabled={page === 1} 
-             onClick={() => handlePageChange(page - 1)}
-             className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
-           >
-             قبلی
-           </button>
-           <span className="px-4 py-2">صفحه {page}</span>
-           <button 
-             onClick={() => handlePageChange(page + 1)}
-             className="px-4 py-2 bg-gray-200 rounded"
-           >
-             بعدی
-           </button>
-         </div>
+        <div className="flex justify-center mt-10 gap-4">
+          <button
+            disabled={page === 1}
+            onClick={() => handlePageChange(page - 1)}
+            className="px-4 py-2 bg-gray-200 rounded disabled:opacity-50"
+          >
+            قبلی
+          </button>
+          <span className="px-4 py-2">صفحه {page}</span>
+          <button
+            onClick={() => handlePageChange(page + 1)}
+            className="px-4 py-2 bg-gray-200 rounded"
+          >
+            بعدی
+          </button>
+        </div>
       )}
     </div>
   );

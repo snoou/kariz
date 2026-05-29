@@ -3,12 +3,16 @@ import RootLayout from './layouts/RootLayout';
 import Home, { homeLoader } from './pages/Home';
 import SearchResults, { searchLoader } from './pages/SearchResults';
 import MangaDetails, { mangaDetailsLoader } from './pages/MangaDetails';
-
+import NotFound from './pages/NotFound';
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
     children: [
+      {
+        path: '*',
+        element: <NotFound />,
+      },
       {
         index: true,
         element: <Home />,
@@ -29,14 +33,14 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider 
-      router={router} 
-      fallbackElement={
-        <div className="flex justify-center items-center min-h-screen text-xl font-semibold">
-          در حال برقراری ارتباط با دروازه مانگا...
-        </div>
-      } 
-    />;
+  return <RouterProvider
+    router={router}
+    fallbackElement={
+      <div className="flex justify-center items-center min-h-screen text-xl font-semibold">
+        در حال برقراری ارتباط با دروازه مانگا...
+      </div>
+    }
+  />;
 }
 
 export default App;
