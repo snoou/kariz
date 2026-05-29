@@ -2,6 +2,7 @@
 
 
 body {
+    @import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;600;800&display=swap');
     direction: rtl;
 }
 

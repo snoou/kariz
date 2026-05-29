@@ -1,16 +1,72 @@
-# React + Vite
+# ⛩️ کاریز (Kariz) | دروازه‌ای به دنیای مانگا 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> «در دورانی که باگ‌ها گرند لاین را تسخیر کرده بودند و کدها در تاریکی کامپایل نمی‌شدند، شینوبی‌های جوان با کیبوردهایی از جنس نور، دروازه‌ای ساختند تا داستان‌ها را نجات دهند...»
 
-Currently, two official plugins are available:
+پروژه **کاریز (Kariz)** یک پلتفرم گشت‌وگذار در دنیای مانگا است که با تلفیق هنرِ طراحی **Neo-Brutalism** (پنل‌های کمیک‌بوکی) و قدرت **هوش مصنوعی (Sibyl System)**، تجربه‌ای فراتر از یک سرچ ساده را به اوتاکوها و توسعه‌دهندگان ارائه می‌دهد.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 **لینک مخزن:** [https://github.com/snoou/kariz.git](https://github.com/snoou/kariz.git)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚡ ویژگی‌های کلیدی (Powers & Abilities)
 
-## Expanding the ESLint configuration
+- 🎨 **طراحی نئو-بروتالیسم (Neo-Brutalism):** رابط کاربری کاملاً ریسپانسیو و منطبق بر استایل پنل‌های مانگا (حاشیه‌های ضخیم، سایه‌های توپر و فونت‌های کمیک).
+- 🧠 **سیستم تحلیلگر سیبیل (هوش مصنوعی آروان‌کلاد):**
+  - ✨ **ترجمه جادویی:** ترجمه روان و لحن‌دارِ خلاصه داستان‌های انگلیسی به فارسی.
+  - 🩸 **کالبدشکافی روانی:** تحلیل آسیب‌های روانی، تروما و درگیری‌های ذهنی کاراکترها.
+  - ⚡ **ریشه‌شناسی قدرت‌ها:** استخراج مهارت‌ها و قدرت‌های داستان و بررسی ریشه آن‌ها در دنیای واقعی/اساطیر.
+- 🗺️ **مسیریابی پیشرفته (Data Router):** استفاده از معماری مدرن `React Router v6` (متدهای `createBrowserRouter` و `Loaders`) برای فچ کردن دیتا قبل از رندر صفحه.
+- 🎭 **ایستراگ‌های مخفی (Easter Eggs):** دارای رازهای طبقه‌بندی شده و فایل‌های محرمانه از «معمار سیستم» (استاد هژیر) که فقط شینوبی‌های کنجکاو آن‌ها را پیدا می‌کنند!
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚔️ شمشیرهای استفاده شده (Tech Stack)
+
+- **هسته اصلی:** `React.js` + `Vite`
+- **مسیریابی:** `React Router DOM` (Data Mode)
+- **استایل‌دهی:** `Tailwind CSS v4` + `PostCSS`
+- **ارتباطات سرور:** `Axios` + `Jikan API v4` (دیتابیس MyAnimeList)
+- **هوش مصنوعی:** `OpenAI SDK` (متصل به مدل‌های زبانی ArvanCloud)
+
+---
+
+## 📜 طومار احضار (راهنمای نصب و اجرا)
+
+برای اجرای این دروازه روی سیستم لوکال خود، مراحل زیر را طی کنید:
+
+**۱. کلون کردن مخزن:**
+```bash
+git clone [https://github.com/snoou/kariz.git](https://github.com/snoou/kariz.git)
+cd kariz
+```
+
+**۲. نصب وابستگی‌ها:**
+```bash
+npm install
+```
+
+**۳. تنظیم طلسم‌های محیطی (Environment Variables):**
+یک فایل `.env` در روت پروژه بسازید و کلیدهای دسترسی آروان‌کلاد را در آن قرار دهید:
+```env
+VITE_ARVAN_API_KEY="apikey YOUR_API_KEY_HERE"
+VITE_ARVAN_BASE_URL="/gateway/models/YOUR_MODEL/v1"
+VITE_ARVAN_MODEL_NAME="Your-Model-Name"
+```
+*(نکته: به دلیل دور زدن خطای CORS، تنظیمات پراکسی در `vite.config.js` ست شده است).*
+
+**۴. اجرای سرور توسعه:**
+```bash
+npm run dev
+```
+
+---
+
+## ⚠ هشدار گارد سلطنتی (صفحه ۴۰۴)
+اگر در هزارتوی مسیرها گم شدید و به آدرسی رفتید که وجود نداشت، نترسید... در خلأ مطلقِ صفحه ۴۰۴، دست یاریِ استاد منتظر شماست تا شما را به گرند لاین بازگرداند!
+
+---
+
+## 🙇‍♂️ تقدیر و تشکر
+تقدیم به **استاد هژیر**؛ کسی که به ما آموخت کدهای تمیز، نیازی به کامنت ندارند، چرا که خودشان داستان را روایت می‌کنند. 
+
+**"کدهایت تمیز و کامپایل‌هایت بی‌خطا باد!"** 💥
