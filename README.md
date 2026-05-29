@@ -52,7 +52,6 @@ VITE_ARVAN_API_KEY="apikey YOUR_API_KEY_HERE"
 VITE_ARVAN_BASE_URL="/gateway/models/YOUR_MODEL/v1"
 VITE_ARVAN_MODEL_NAME="Your-Model-Name"
 ```
-*(نکته: به دلیل دور زدن خطای CORS، تنظیمات پراکسی در `vite.config.js` ست شده است).*
 
 **۴. اجرای سرور توسعه:**
 ```bash
