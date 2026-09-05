@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'https://api.jikan.moe/v4', 
+  baseURL: 'https://api.tenrai.org/v1', 
   timeout: 30000,
 });
 

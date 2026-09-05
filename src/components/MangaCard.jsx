@@ -6,7 +6,6 @@ const MangaCard = ({ manga }) => {
   return (
     <Link to={`/manga/${manga.mal_id}`} className="block h-full">
       <div className="comic-panel flex flex-col h-full rounded-xl overflow-hidden relative group">
-        {/* برچسب امتیاز به سبک دیالوگ باکس */}
         <div className="absolute top-2 right-2 bg-yellow-400 border-2 border-black font-bold px-2 py-1 transform rotate-3 z-10 text-sm">
           ★ {manga.score || 'N/A'}
         </div>
