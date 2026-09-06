@@ -1,16 +1,28 @@
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
+export async function onRequestOptions() {
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders,
+  });
+}
+
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
 
     if (!body.messages || !Array.isArray(body.messages)) {
       return new Response(
-        JSON.stringify({
-          error: 'messages is required',
-        }),
+        JSON.stringify({ error: 'messages is required' }),
         {
           status: 400,
           headers: {
             'Content-Type': 'application/json',
+            ...corsHeaders,
           },
         }
       );
@@ -20,12 +32,10 @@ export async function onRequestPost(context) {
       `${context.env.ARVAN_BASE_URL}/chat/completions`,
       {
         method: 'POST',
-
         headers: {
           'Content-Type': 'application/json',
-          Authorization: context.env.ARVAN_API_KEY,
+          Authorization: `Bearer ${context.env.ARVAN_API_KEY}`,
         },
-
         body: JSON.stringify({
           model: context.env.ARVAN_MODEL_NAME,
           messages: body.messages,
@@ -41,19 +51,19 @@ export async function onRequestPost(context) {
       status: response.status,
       headers: {
         'Content-Type': 'application/json',
+        ...corsHeaders,
       },
     });
   } catch (error) {
     console.error('AI Function Error:', error);
 
     return new Response(
-      JSON.stringify({
-        error: 'خطا در ارتباط با سرویس هوش مصنوعی',
-      }),
+      JSON.stringify({ error: 'خطا در ارتباط با سرویس هوش مصنوعی' }),
       {
         status: 500,
         headers: {
           'Content-Type': 'application/json',
+          ...corsHeaders,
         },
       }
     );
