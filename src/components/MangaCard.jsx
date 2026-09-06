@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 
 const MangaCard = ({ manga }) => {
-  const imageUrl = manga.images?.jpg?.image_url || 'https://via.placeholder.com/300x400';
+  const imageUrl = manga.images?.jpg?.large_image_url
+    ? `/api/image?url=${encodeURIComponent(manga.images.jpg.large_image_url)}`
+    : 'https://via.placeholder.com/300x400';
 
   return (
     <Link to={`/manga/${manga.mal_id}`} className="block h-full">
