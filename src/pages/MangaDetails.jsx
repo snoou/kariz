@@ -315,8 +315,8 @@ ${manga.synopsis}`,
       <button
         onClick={() => navigate(-1)}
         className="mb-6 bg-black text-white px-4 py-2 font-comic text-xl hover:-translate-x-2 transition-transform shadow-[4px_4px_0_0_#ef4444]"
-      > &larr;
-        بازگشت
+      >   بازگشت &larr;
+
       </button>
 
       <div className="comic-panel p-6 md:p-10 mb-12 flex flex-col md:flex-row gap-8 bg-white relative">
