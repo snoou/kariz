@@ -22,34 +22,36 @@ export async function onRequestPost(context) {
       });
     }
 
-    const apiUrl = `${context.env.ARVAN_BASE_URL}/chat/completions`;
+    let apiUrl = context.env.VITE_ARVAN_BASE_URL;
+
+    if (apiUrl && !apiUrl.endsWith('/chat/completions')) {
+      if (apiUrl.endsWith('/')) apiUrl = apiUrl.slice(0, -1);
+      apiUrl = `${apiUrl}/chat/completions`;
+    }
 
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${context.env.ARVAN_API_KEY}`,
+        Authorization: context.env.VITE_ARVAN_API_KEY,
       },
       body: JSON.stringify({
-        model: context.env.ARVAN_MODEL_NAME,
+        model: context.env.VITE_ARVAN_MODEL_NAME,
         messages: body.messages,
         max_tokens: body.max_tokens ?? 2500,
         temperature: body.temperature ?? 0.7,
       }),
     });
 
-    // خواندن پاسخ به صورت متنی برای جلوگیری از خطای پارس JSON
     const rawText = await response.text();
     let data;
-    
+
     try {
       data = JSON.parse(rawText);
     } catch (e) {
-      // اگر پاسخ آروان JSON نباشد (مثلا ارور 502 یا 404 بدهد)
       data = { raw_response: rawText };
     }
 
-    // اگر درخواست به آروان ناموفق بود، ارور دقیق را به فرانت‌اند بفرست
     if (!response.ok) {
       return new Response(
         JSON.stringify({
@@ -57,7 +59,7 @@ export async function onRequestPost(context) {
           status: response.status,
           details: data,
           attemptedUrl: apiUrl
-        }), 
+        }),
         {
           status: response.status,
           headers: { 'Content-Type': 'application/json', ...corsHeaders },
