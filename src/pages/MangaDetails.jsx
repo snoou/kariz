@@ -63,7 +63,7 @@ export const mangaDetailsLoader = async ({ params }) => {
         title: 'هژیر (The Legendary Sensei)',
         images: {
           jpg: {
-            large_image_url: { Ha },
+            large_image_url: Ha,
           },
         },
         score: 'OVER 9000 💥',
@@ -105,6 +105,16 @@ const MangaDetails = () => {
 
   const [showEasterEgg, setShowEasterEgg] = useState(false);
 
+
+  const getSafeImageUrl = (url) => {
+    if (!url) return 'https://via.placeholder.com/400x600';
+
+    if (typeof url === 'string' && url.startsWith('http')) {
+      return `/api/image?url=${encodeURIComponent(url)}`;
+    }
+
+    return url;
+  };
 
   const handleTranslate = async () => {
     if (!manga?.synopsis) return;
@@ -303,6 +313,9 @@ ${manga.synopsis}`,
   };
 
 
+
+
+
   if (!manga) {
     return (
       <p className="text-center font-comic text-3xl mt-20 bg-white p-6 border-4 border-black inline-block">
@@ -322,11 +335,11 @@ ${manga.synopsis}`,
 
       <div className="comic-panel p-6 md:p-10 mb-12 flex flex-col md:flex-row gap-8 bg-white relative">
         <img
-          src={
+          src={getSafeImageUrl(
             manga.images?.jpg?.large_image_url
               ? `/api/image?url=${encodeURIComponent(manga.images.jpg.large_image_url)}`
               : 'https://via.placeholder.com/400x600'
-          }
+          )}
           alt={manga.title}
           className="w-full md:w-1/3 border-4 border-black object-cover shadow-[6px_6px_0_0_#000] rotate-1 hover:rotate-0 transition-transform"
         />
