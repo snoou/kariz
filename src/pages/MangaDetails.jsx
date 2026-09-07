@@ -335,11 +335,7 @@ ${manga.synopsis}`,
 
       <div className="comic-panel p-6 md:p-10 mb-12 flex flex-col md:flex-row gap-8 bg-white relative">
         <img
-          src={getSafeImageUrl(
-            manga.images?.jpg?.large_image_url
-              ? `/api/image?url=${encodeURIComponent(manga.images.jpg.large_image_url)}`
-              : 'https://via.placeholder.com/400x600'
-          )}
+          src={getSafeImageUrl(manga.images?.jpg?.large_image_url)}
           alt={manga.title}
           className="w-full md:w-1/3 border-4 border-black object-cover shadow-[6px_6px_0_0_#000] rotate-1 hover:rotate-0 transition-transform"
         />
