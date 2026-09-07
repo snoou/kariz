@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import apiClient from '../api/axiosClient';
-import Ha from './ha.png'
+import Ha from '../assets/images/ha.png'
 
 const WandIcon = () => (
   <svg
