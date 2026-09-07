@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'; // تغییر: ایمپورت Link به جای useNavigate
-
+import { Link } from 'react-router-dom';
+import Not from './404.png' 
 const NotFound = () => {
 
     return (
@@ -36,7 +36,7 @@ const NotFound = () => {
                             <div className="absolute inset-0 bg-yellow-400 border-4 border-black transform translate-x-3 translate-y-3"></div>
                             
                             <img 
-                                src="./404.png" 
+                                src={Not}
                                 alt="404 Error"
                                 className="relative z-10 w-48 h-48 md:w-56 md:h-56 object-cover border-4 border-black grayscale group-hover:grayscale-0 group-hover:-translate-y-2 group-hover:-translate-x-2 transition-all duration-300 bg-white"
                             />

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import apiClient from '../api/axiosClient';
+import Ha from './ha.png'
 
 const WandIcon = () => (
   <svg
@@ -62,7 +63,7 @@ export const mangaDetailsLoader = async ({ params }) => {
         title: 'هژیر (The Legendary Sensei)',
         images: {
           jpg: {
-            large_image_url: '/public/ha.png',
+            large_image_url: { Ha },
           },
         },
         score: 'OVER 9000 💥',
